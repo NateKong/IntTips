@@ -1,0 +1,144 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".IntTip"
+    android:background="#FFF"
+    >
+
+    <TableLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <TableRow style="@style/row">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/total"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#000"/>
+        </TableRow>
+
+        <TableRow
+            style="@style/row"
+            android:paddingBottom="25dp"
+            android:paddingTop="25dp">
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="$0.00"
+                android:imeOptions="actionDone"
+                android:inputType="numberDecimal"
+                android:textSize="30sp"/>
+
+        </TableRow>
+
+        <TableRow style="@style/row">
+
+            <TextView
+                style="@style/percent"
+                android:text="@string/percent15" />
+
+            <TextView
+                style="@style/tip"
+                android:text="@string/zero" />
+        </TableRow>
+
+        <TableRow style="@style/row">
+
+            <TextView
+                style="@style/percent"
+                android:text="+15%" />
+
+            <TextView
+                style="@style/tip"
+                android:text="@string/zero" />
+        </TableRow>
+
+        <TableRow style="@style/row">
+
+            <TextView
+                style="@style/percent"
+                android:text="-18%" />
+
+            <TextView
+                style="@style/tip"
+                android:text="@string/zero" />
+        </TableRow>
+
+        <TableRow style="@style/row">
+
+            <TextView
+                style="@style/percent"
+                android:text="18%" />
+
+            <TextView
+                style="@style/tip"
+                android:text="@string/zero" />
+        </TableRow>
+
+        <TableRow style="@style/row">
+
+            <TextView
+                style="@style/percent"
+                android:text="+18%" />
+
+            <TextView
+                style="@style/tip"
+                android:text="@string/zero" />
+        </TableRow>
+
+        <TableRow
+            style="@style/row"
+            android:paddingTop="50dp">
+
+            <TextView
+                android:text="Custom Tip"
+                android:textSize="25sp" />
+
+        </TableRow>
+
+        <TableRow
+            style="@style/row"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
+
+            <EditText
+                style="@style/percent"
+                android:hint="20%"
+                android:inputType="number"
+                android:textSize="20sp" />
+
+            <TextView
+                style="@style/tip"
+                android:text="$0.00"
+                android:textSize="20sp" />
+
+        </TableRow>
+
+
+
+    </TableLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="email"
+        android:textStyle="bold"
+        android:text="CALCULATE"
+        android:layout_alignParentBottom="true"
+        android:background="#0099FF"
+        android:textSize="25sp"
+        android:textColor="#fff"/>
+</RelativeLayout>
