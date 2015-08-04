@@ -2,14 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".IntTip"
     android:background="#FFF"
-    >
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".IntTip">
 
     <TableLayout
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin">
 
@@ -21,9 +20,9 @@
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="@string/total"
+                android:textColor="#000"
                 android:textSize="30sp"
-                android:textStyle="bold"
-                android:textColor="#000"/>
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
@@ -31,16 +30,24 @@
             android:paddingBottom="25dp"
             android:paddingTop="25dp">
 
-            <EditText
+            <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="end"
+                android:text="$"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/totalBill"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
                 android:gravity="center"
-                android:hint="$0.00"
+                android:hint="0.00"
                 android:imeOptions="actionDone"
                 android:inputType="numberDecimal"
-                android:textSize="30sp"
-                android:textColor="#0000FF"/>
+                android:textSize="30sp" />
 
         </TableRow>
 
@@ -51,6 +58,7 @@
                 android:text="@string/percent15" />
 
             <TextView
+                android:id="@+id/fifteen"
                 style="@style/tip"
                 android:text="@string/zero" />
         </TableRow>
@@ -84,6 +92,7 @@
                 android:text="18%" />
 
             <TextView
+                android:id="@+id/eighteen"
                 style="@style/tip"
                 android:text="@string/zero" />
         </TableRow>
@@ -116,8 +125,14 @@
 
             <EditText
                 style="@style/percent"
-                android:hint="20%"
-                android:inputType="number"
+                android:inputType="numberSigned"
+                android:text="20"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="%"
                 android:textSize="20sp" />
 
             <TextView
@@ -128,19 +143,20 @@
         </TableRow>
 
 
-
     </TableLayout>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:onClick="email"
-        android:textStyle="bold"
-        android:text="CALCULATE"
         android:layout_alignParentBottom="true"
         android:background="#0099FF"
+        android:gravity="center"
+        android:onClick="email"
+        android:text="CALCULATE"
+        android:textColor="#fff"
         android:textSize="25sp"
-        android:textColor="#fff"/>
+        android:textStyle="bold"
+        android:id="@+id/button" />
+
 </RelativeLayout>
 <!-- From: file:/C:/Users/ME/AndroidStudioProjects/IntTips/app/src/main/res/layout/layout_tip_main.xml -->

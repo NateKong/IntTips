@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -16,8 +18,8 @@ public class IntTip extends Activity {
     private View mMainView;
     private final String totalErrorString = "please check your total price";
     private final String percentErrorString = "Please check your custom percent";
-    private double total;
-    private double percent;
+    private final double fifteenPercent = 0.15;
+    private final double eightteenPercent = 0.18;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,7 @@ public class IntTip extends Activity {
         int duration = Toast.LENGTH_LONG;
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
-        
+
     }
 
     @Override
@@ -62,4 +64,36 @@ public class IntTip extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void email(View v){
+        EditText bill = (EditText)findViewById(R.id.totalBill);
+        double totalBill = Integer.parseInt(bill.getText().toString());
+
+
+
+    }
+
+    /**
+     * Sets the tip or total amount to the screen
+     * @param textView the view/id to write to
+     * @param money the amount to tip to the total
+     */
+    private void displayTipToScreen(int textView, double money){
+        TextView v = (TextView) findViewById(textView);
+        v.setText("$"+money);
+    }
+
+    /**
+     * Sets the percentage to the screen
+     * @param textView
+     * @param percent
+     */
+    private void displayPercentToScreen(int textView, int percent){
+        TextView v = (TextView) findViewById(textView);
+        v.setText(percent+"%");
+    }
+
+
+
+
 }
