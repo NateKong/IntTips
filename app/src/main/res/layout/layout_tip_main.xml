@@ -27,7 +27,7 @@
 
         <TableRow
             style="@style/row"
-            android:paddingBottom="25dp"
+            android:paddingBottom="10dp"
             android:paddingTop="25dp">
 
             <TextView
@@ -47,6 +47,7 @@
                 android:hint="0.00"
                 android:imeOptions="actionDone"
                 android:inputType="numberDecimal"
+                android:paddingRight="40dp"
                 android:textSize="30sp" />
 
         </TableRow>
@@ -60,10 +61,12 @@
             <TextView
                 style="@style/tip"
                 android:text="TIP" />
+
             <TextView
                 style="@style/total"
-                android:text="TOTAL"/>
+                android:text="TOTAL" />
         </TableRow>
+
         <TableRow style="@style/row">
 
             <TextView
@@ -71,25 +74,31 @@
                 android:text="@string/percent15" />
 
             <TextView
-                android:id="@+id/fifteen"
+                android:id="@+id/tip15"
                 style="@style/tip"
                 android:text="@string/zero" />
+
             <TextView
                 style="@style/total"
+                android:id="@+id/total15"
                 android:text="@string/zero" />
         </TableRow>
 
         <TableRow style="@style/row">
 
             <TextView
+                android:id="@+id/plus15"
                 style="@style/percent"
                 android:text="+15%" />
 
             <TextView
                 style="@style/tip"
+                android:id="@+id/tip15Plus"
                 android:text="@string/zero" />
+
             <TextView
                 style="@style/total"
+                android:id="@+id/total15Plus"
                 android:text="@string/zero" />
         </TableRow>
 
@@ -97,13 +106,17 @@
 
             <TextView
                 style="@style/percent"
+                android:id="@+id/minus18"
                 android:text="-18%" />
 
             <TextView
                 style="@style/tip"
+                android:id="@+id/tip18Minus"
                 android:text="@string/zero" />
+
             <TextView
                 style="@style/total"
+                android:id="@+id/total18Minus"
                 android:text="@string/zero" />
         </TableRow>
 
@@ -114,11 +127,13 @@
                 android:text="18%" />
 
             <TextView
-                android:id="@+id/eighteen"
+                android:id="@+id/tip18"
                 style="@style/tip"
                 android:text="@string/zero" />
+
             <TextView
                 style="@style/total"
+                android:id="@+id/total18"
                 android:text="@string/zero" />
         </TableRow>
 
@@ -126,19 +141,23 @@
 
             <TextView
                 style="@style/percent"
+                android:id="@+id/plus18"
                 android:text="+18%" />
 
             <TextView
                 style="@style/tip"
+                android:id="@+id/tip18Plus"
                 android:text="@string/zero" />
+
             <TextView
                 style="@style/total"
+                android:id="@+id/total18Plus"
                 android:text="@string/zero" />
         </TableRow>
 
         <TableRow
             style="@style/row"
-            android:paddingTop="50dp">
+            android:paddingTop="20dp">
 
             <TextView
                 android:text="Custom Tip"
@@ -146,19 +165,16 @@
 
         </TableRow>
 
-        <TableRow
-            style="@style/row"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp">
+        <TableRow style="@style/row">
 
             <EditText
+                android:id="@+id/cPercent"
                 style="@style/percent"
                 android:inputType="numberSigned"
                 android:text="20"
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/cPercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="%"
@@ -166,29 +182,69 @@
 
             <TextView
                 style="@style/tip"
+                android:id="@+id/cTip"
                 android:text="$0.00"
                 android:textSize="20sp" />
+
             <TextView
                 style="@style/total"
-                android:textSize="20sp"
-                android:text="@string/zero" />
+                android:id="@+id/cAmount"
+                android:text="@string/zero"
+                android:textSize="20sp" />
 
         </TableRow>
 
+        <TableRow
+            style="@style/row"
+            android:paddingTop="20dp">
+
+            <TextView
+                android:text="Split"
+                android:textSize="25sp" />
+
+        </TableRow>
+
+        <TableRow
+            style="@style/row"
+            android:layout_paddingTop="50dp">
+
+            <EditText
+                android:id="@+id/splitPeople"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:text="people"/>
+
+            <TextView style="@style/tip"
+                android:id="@+id/splitAmount"
+                android:text="@string/zero"
+                android:layout_height="wrap_content"
+                />
+
+        </TableRow>
 
     </TableLayout>
 
     <Button
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#0099FF"
         android:gravity="center"
-        android:onClick="email"
+        android:onClick="calculate"
         android:text="CALCULATE"
         android:textColor="#fff"
         android:textSize="25sp"
-        android:textStyle="bold"
-        android:id="@+id/button" />
+        android:textStyle="bold" />
 
 </RelativeLayout>

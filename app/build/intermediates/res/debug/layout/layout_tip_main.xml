@@ -47,8 +47,24 @@
                 android:hint="0.00"
                 android:imeOptions="actionDone"
                 android:inputType="numberDecimal"
+                android:paddingRight="40dp"
                 android:textSize="30sp" />
 
+        </TableRow>
+
+        <TableRow style="@style/row">
+
+            <TextView
+                style="@style/percent"
+                android:text="PERCENT" />
+
+            <TextView
+                style="@style/tip"
+                android:text="TIP" />
+
+            <TextView
+                style="@style/total"
+                android:text="TOTAL" />
         </TableRow>
 
         <TableRow style="@style/row">
@@ -61,6 +77,10 @@
                 android:id="@+id/fifteen"
                 style="@style/tip"
                 android:text="@string/zero" />
+
+            <TextView
+                style="@style/total"
+                android:text="@string/zero" />
         </TableRow>
 
         <TableRow style="@style/row">
@@ -72,6 +92,10 @@
             <TextView
                 style="@style/tip"
                 android:text="@string/zero" />
+
+            <TextView
+                style="@style/total"
+                android:text="@string/zero" />
         </TableRow>
 
         <TableRow style="@style/row">
@@ -82,6 +106,10 @@
 
             <TextView
                 style="@style/tip"
+                android:text="@string/zero" />
+
+            <TextView
+                style="@style/total"
                 android:text="@string/zero" />
         </TableRow>
 
@@ -95,6 +123,10 @@
                 android:id="@+id/eighteen"
                 style="@style/tip"
                 android:text="@string/zero" />
+
+            <TextView
+                style="@style/total"
+                android:text="@string/zero" />
         </TableRow>
 
         <TableRow style="@style/row">
@@ -105,6 +137,10 @@
 
             <TextView
                 style="@style/tip"
+                android:text="@string/zero" />
+
+            <TextView
+                style="@style/total"
                 android:text="@string/zero" />
         </TableRow>
 
@@ -124,6 +160,7 @@
             android:paddingTop="10dp">
 
             <EditText
+                android:id="@+id/cPercent"
                 style="@style/percent"
                 android:inputType="numberSigned"
                 android:text="20"
@@ -135,9 +172,14 @@
                 android:text="%"
                 android:textSize="20sp" />
 
-            <TextView
+            <EditText
                 style="@style/tip"
                 android:text="$0.00"
+                android:textSize="20sp" />
+
+            <EditText
+                style="@style/total"
+                android:text="@string/zero"
                 android:textSize="20sp" />
 
         </TableRow>
@@ -146,17 +188,17 @@
     </TableLayout>
 
     <Button
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#0099FF"
         android:gravity="center"
-        android:onClick="email"
+        android:onClick="calculate"
         android:text="CALCULATE"
         android:textColor="#fff"
         android:textSize="25sp"
-        android:textStyle="bold"
-        android:id="@+id/button" />
+        android:textStyle="bold" />
 
 </RelativeLayout>
 <!-- From: file:/C:/Users/ME/AndroidStudioProjects/IntTips/app/src/main/res/layout/layout_tip_main.xml -->

@@ -55,20 +55,21 @@ public class IntTip extends Activity {
      * Calculates the total bill with tip
      * @param v
      */
-    public void email(View v){
+    public void calculate(View v){
         EditText tBill = (EditText)findViewById(R.id.totalBill);
         bill = Double.parseDouble(tBill.getText().toString());
 
         //calculate 15%
         percent.add(15.0);
         tip.add(calculateTip(percent.get(0)));
+        total.add(percent.get(0) + tip.get(0));
 
         //round up by $1
 
         //round down by $1
 
         //calculate custom
-        EditText customPercent = (EditText)findViewById(R.id.cPercent);
+        EditText customPercent = (EditText) findViewById(R.id.cPercent);
         double percent = Double.parseDouble(customPercent.getText().toString());
 
         //display

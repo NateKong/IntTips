@@ -208,7 +208,7 @@
     <!-- From: file:/C:/Users/ME/AndroidStudioProjects/IntTips/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="total">Enter Meal Total</string>
-    <string name="zero">0.00</string>
+    <string name="zero">$0.00</string>
     <!-- From: file:/C:/Users/ME/AndroidStudioProjects/IntTips/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
@@ -1477,6 +1477,13 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
     <style name="tip">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="total">
         <item name="android:layout_weight">1</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">0dp</item>
