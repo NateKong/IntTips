@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.NumberFormat;
+
 
 public class IntTip extends Activity {
     private View mMainView;
@@ -30,14 +32,10 @@ public class IntTip extends Activity {
         mMainView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);//request the bisibility of the status bar (request full screen mode)
 
         //constructor
-        bill = 0;
+        bill = 10;
 
         //create a toast
-        Context context = getApplicationContext();
-        String text = "cha ching" + "\n" + "cha ching";
-        int duration = Toast.LENGTH_LONG;
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
+        toast();
 
     }
 
@@ -48,7 +46,10 @@ public class IntTip extends Activity {
      */
     public void calculate(View v) {
         EditText tBill = (EditText) findViewById(R.id.totalBill);
-        bill = Double.parseDouble(tBill.getText().toString());
+        String theBill = tBill.getText().toString();
+        if (!theBill.matches("")){
+            bill = Double.parseDouble(theBill);
+        }
 
         //calculate 15%
         double tip15 = calculate15();
@@ -66,9 +67,6 @@ public class IntTip extends Activity {
         total.add(total18m);
         percent.add(calculatePercent(tip18m));
 
-
-
-
         //18%+
         double tip18p = Math.ceil(tip18);
         tip.add(tip18p);
@@ -84,20 +82,20 @@ public class IntTip extends Activity {
         tip.add(cTip);
         total.add(cTip + bill);
         */
-
+        toast();
     }
 
     private double calculate15(){
        double tip15 = calculateTip(15.0);
        displayToScreen(R.id.tip15, tip15);
-       displayToScreen(R.id.tip15, tip15+bill);
+       displayToScreen(R.id.total15, tip15+bill);
        return tip15;
     }
 
     private double calculate18(){
         double tip18 = calculateTip(18.0);
         displayToScreen(R.id.tip18, tip18);
-        displayToScreen(R.id.tip18, tip18 + bill);
+        displayToScreen(R.id.total18, tip18 + bill);
         return tip18;
     }
 
@@ -105,7 +103,7 @@ public class IntTip extends Activity {
         displayToScreen(R.id.tip15Plus, tip15p);
         double total15p = tip15p + bill;
         displayToScreen(R.id.total15Plus, total15p );
-        displayPercentToScreen(R.id.plus15, calculatePercent(tip15p*100));
+        displayPercentToScreen(R.id.plus15, calculatePercent(tip15p * 100));
     }
     /**
      * Sets the tip or total amount to the screen
@@ -114,7 +112,7 @@ public class IntTip extends Activity {
      * @param money    the amount to tip to the total
      */
     private void displayToScreen(int textView, double money) {
-        String moneyString = "$" + String.format("%0.2f", money);
+        String moneyString = NumberFormat.getCurrencyInstance().format(money); //+ String.format("%0.2lf", money);
         TextView v = (TextView) findViewById(textView);
         v.setText(moneyString);
     }
@@ -126,7 +124,7 @@ public class IntTip extends Activity {
      * @param percent
      */
     private void displayPercentToScreen(int textView, double percent) {
-        String percentString = String.format("%0.2f", percent) + "%";
+        String percentString = NumberFormat.getCurrencyInstance().format(percent) + "%";
         TextView v = (TextView) findViewById(textView);
         v.setText(percentString);
     }
@@ -149,5 +147,13 @@ public class IntTip extends Activity {
      */
     private double calculatePercent(double tip) {
         return (tip / bill) * 100;
+    }
+
+    private void toast(){
+        Context context = getApplicationContext();
+        String text = "cha ching" + "\n" + "cha ching";
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 }
