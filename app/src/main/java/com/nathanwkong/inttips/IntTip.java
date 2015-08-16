@@ -35,7 +35,7 @@ public class IntTip extends Activity {
         bill = 10;
 
         //create a toast
-        String text = "cha ching" + "\n" + "cha ching";
+        String text = "IntTips";
         toast(text);
 
     }
@@ -48,10 +48,7 @@ public class IntTip extends Activity {
     public void calculate(View v) {
         EditText tBill = (EditText) findViewById(R.id.totalBill);
         String theBill = tBill.getText().toString();
-        //if the bill is empty
-        if (!theBill.matches("")){
-            bill = Double.parseDouble(theBill);
-        }
+        bill = Double.parseDouble(theBill);
 
         //calculate numbers
         double total15 = calculate15(); //15%
@@ -61,9 +58,11 @@ public class IntTip extends Activity {
         calculate18p(Math.ceil(total18));//18%+
 
         //calculate custom
-        //calculateCustom();
+        double total = calculateCustom();
 
-        toast("$");
+        //calculate split
+        calculateSplit(total);
+        toast("cha ching" + "\n" + "cha ching");
     }
 
     private double calculate15(){
@@ -101,10 +100,23 @@ public class IntTip extends Activity {
         displayPercentToScreen(R.id.plus18, calculatePercent(tip18p));
     }
 
-    private void calculateCustom(){
-        EditText customPercent = (EditText) findViewById(R.id.cPercent);
-        double cPercent = Double.parseDouble(customPercent.getText().toString());
+    private double calculateCustom(){
+        EditText customPercent = (EditText) findViewById(R.id.cAmount);
+        double cAmount = Double.parseDouble(customPercent.getText().toString());
+        double cTip = cAmount - bill;
+        displayToScreen(R.id.cTip, cTip);
 
+        String percentString = String.format("%10.1f", cTip) + "%";
+        TextView v = (TextView) findViewById(R.id.cPercent);
+        v.setText(percentString);
+
+        return cAmount;
+    }
+
+    private void calculateSplit(double total){
+        EditText theSplit = (EditText) findViewById(R.id.splitPeople);
+        double people = Double.parseDouble(theSplit.getText().toString());
+        displayToScreen(R.id.splitAmount, total/people);
     }
 
     /**

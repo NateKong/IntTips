@@ -587,10 +587,13 @@ int string abc_toolbar_collapse_description 0x7f060010
 int string action_settings 0x7f060011
 int string app_name 0x7f060012
 int string d_sign 0x7f060013
-int string percent15 0x7f060014
-int string status_bar_notification_info_overflow 0x7f060015
-int string total 0x7f060016
-int string zero 0x7f060017
+int string mealTotal 0x7f060014
+int string percent 0x7f060015
+int string percent15 0x7f060016
+int string status_bar_notification_info_overflow 0x7f060017
+int string tip 0x7f060018
+int string total 0x7f060019
+int string zero 0x7f06001a
 int style AlertDialog_AppCompat 0x7f080073
 int style AlertDialog_AppCompat_Light 0x7f080074
 int style Animation_AppCompat_Dialog 0x7f080075

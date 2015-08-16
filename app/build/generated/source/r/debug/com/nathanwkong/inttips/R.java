@@ -1714,10 +1714,13 @@ containing a value of this type.
         public static final int action_settings=0x7f060011;
         public static final int app_name=0x7f060012;
         public static final int d_sign=0x7f060013;
-        public static final int percent15=0x7f060014;
-        public static final int status_bar_notification_info_overflow=0x7f060015;
-        public static final int total=0x7f060016;
-        public static final int zero=0x7f060017;
+        public static final int mealTotal=0x7f060014;
+        public static final int percent=0x7f060015;
+        public static final int percent15=0x7f060016;
+        public static final int status_bar_notification_info_overflow=0x7f060017;
+        public static final int tip=0x7f060018;
+        public static final int total=0x7f060019;
+        public static final int zero=0x7f06001a;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f080073;

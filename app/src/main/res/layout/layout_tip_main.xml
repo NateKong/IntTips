@@ -19,7 +19,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="@string/total"
+                android:text="@string/mealTotal"
                 android:textColor="#000"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -44,10 +44,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
                 android:gravity="center"
-                android:text="10.00"
                 android:imeOptions="actionDone"
                 android:inputType="numberDecimal"
                 android:paddingRight="40dp"
+                android:text="10.00"
                 android:textSize="30sp" />
 
         </TableRow>
@@ -56,32 +56,37 @@
 
             <TextView
                 style="@style/percent"
-                android:text="PERCENT" />
+                android:text="@string/percent" />
 
             <TextView
                 style="@style/tip"
-                android:text="TIP" />
+                android:text="@string/tip" />
 
             <TextView
                 style="@style/total"
-                android:text="TOTAL" />
+                android:text="@string/total" />
         </TableRow>
 
-        <TableRow style="@style/row">
+        <TableRow
+            style="@style/row"
+            android:paddingTop="5dp">
 
             <TextView
                 style="@style/percent"
-                android:text="@string/percent15" />
+                android:text="@string/percent15"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tip15"
                 style="@style/tip"
-                android:text="@string/zero" />
+                android:text="@string/zero"
+                android:textStyle="bold" />
 
             <TextView
-                style="@style/total"
                 android:id="@+id/total15"
-                android:text="@string/zero" />
+                style="@style/total"
+                android:text="@string/zero"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow style="@style/row">
@@ -92,31 +97,33 @@
                 android:text="+15%" />
 
             <TextView
-                style="@style/tip"
                 android:id="@+id/tip15Plus"
+                style="@style/tip"
                 android:text="@string/zero" />
 
             <TextView
-                style="@style/total"
                 android:id="@+id/total15Plus"
+                style="@style/total"
                 android:text="@string/zero" />
         </TableRow>
 
-        <TableRow style="@style/row">
+        <TableRow
+            style="@style/row"
+            android:paddingTop="5dp">
 
             <TextView
-                style="@style/percent"
                 android:id="@+id/minus18"
+                style="@style/percent"
                 android:text="-18%" />
 
             <TextView
-                style="@style/tip"
                 android:id="@+id/tip18Minus"
+                style="@style/tip"
                 android:text="@string/zero" />
 
             <TextView
-                style="@style/total"
                 android:id="@+id/total18Minus"
+                style="@style/total"
                 android:text="@string/zero" />
         </TableRow>
 
@@ -124,34 +131,38 @@
 
             <TextView
                 style="@style/percent"
-                android:text="18%" />
+                android:text="18%"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tip18"
                 style="@style/tip"
-                android:text="@string/zero" />
+                android:text="@string/zero"
+                android:textStyle="bold" />
+
 
             <TextView
-                style="@style/total"
                 android:id="@+id/total18"
-                android:text="@string/zero" />
+                style="@style/total"
+                android:text="@string/zero"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow style="@style/row">
 
             <TextView
-                style="@style/percent"
                 android:id="@+id/plus18"
+                style="@style/percent"
                 android:text="+18%" />
 
             <TextView
-                style="@style/tip"
                 android:id="@+id/tip18Plus"
+                style="@style/tip"
                 android:text="@string/zero" />
 
             <TextView
-                style="@style/total"
                 android:id="@+id/total18Plus"
+                style="@style/total"
                 android:text="@string/zero" />
         </TableRow>
 
@@ -167,29 +178,30 @@
 
         <TableRow style="@style/row">
 
-            <EditText
+            <TextView
                 android:id="@+id/cPercent"
                 style="@style/percent"
-                android:inputType="numberSigned"
-                android:text="20"
+                android:text="20%"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/cTip"
+                style="@style/tip"
+                android:text="$0.00"
                 android:textSize="20sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="%"
+                android:text="$"
                 android:textSize="20sp" />
 
-            <TextView
-                style="@style/tip"
-                android:id="@+id/cTip"
-                android:text="$0.00"
-                android:textSize="20sp" />
-
-            <TextView
-                style="@style/total"
+            <EditText
                 android:id="@+id/cAmount"
-                android:text="@string/zero"
+                style="@style/total"
+                android:inputType="numberDecimal"
+                android:imeOptions="actionDone"
+                android:text="10.00"
                 android:textSize="20sp" />
 
         </TableRow>
@@ -199,17 +211,16 @@
             android:layout_marginTop="20dp">
 
             <TextView
-                android:text="Split"
-                android:layout_height="wrap_content"
                 android:layout_width="0dp"
-                android:gravity="center"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
+                android:text="Split"
                 android:textSize="25sp" />
 
         </TableRow>
 
-        <TableRow
-            style="@style/row">
+        <TableRow style="@style/row">
 
             <EditText
                 android:id="@+id/splitPeople"
@@ -217,6 +228,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:inputType="numberDecimal"
+                android:imeOptions="actionDone"
                 android:text="1"
                 android:textSize="20sp" />
 
@@ -224,16 +237,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="20sp"
                 android:gravity="center"
-                android:text="people"/>
+                android:text="people"
+                android:textSize="20sp" />
 
-            <TextView style="@style/tip"
+            <TextView
                 android:id="@+id/splitAmount"
-                android:text="@string/zero"
-                android:textSize="20sp"
+                style="@style/tip"
                 android:layout_height="wrap_content"
-                />
+                android:text="@string/zero"
+                android:textSize="20sp" />
 
         </TableRow>
 

@@ -201,13 +201,16 @@
     <string name="action_settings">Settings</string>
     <string name="app_name">IntTips</string>
     <string name="d_sign">$</string>
+    <string name="mealTotal">Enter Meal Total</string>
+    <string name="percent"><b><u>PERCENT</u></b></string>
     <string name="percent15">15%</string>
     <!-- From: file:/C:/Users/ME/AndroidStudioProjects/IntTips/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>
     <!-- From: file:/C:/Users/ME/AndroidStudioProjects/IntTips/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="total">Enter Meal Total</string>
+    <string name="tip"><b><u>TIP</u></b></string>
+    <string name="total"><b><u>TOTAL</u></b></string>
     <string name="zero">$0.00</string>
     <!-- From: file:/C:/Users/ME/AndroidStudioProjects/IntTips/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values/values.xml -->
     <eat-comment/>
