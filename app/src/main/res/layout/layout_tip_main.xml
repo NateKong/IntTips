@@ -48,7 +48,12 @@
                 android:inputType="numberDecimal"
                 android:paddingRight="40dp"
                 android:text="10.00"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:clickable="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
+                <!--android:onClick="setBillTotal"-->
+
 
         </TableRow>
 
@@ -202,7 +207,12 @@
                 android:inputType="numberDecimal"
                 android:imeOptions="actionDone"
                 android:text="10.00"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:clickable="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
+                <!--android:onClick="setCTotal"-->
+
 
         </TableRow>
 
@@ -231,7 +241,12 @@
                 android:inputType="numberDecimal"
                 android:imeOptions="actionDone"
                 android:text="1"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:clickable="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
+                <!--android:onClick="setSplitPpl"-->
+
 
             <TextView
                 android:layout_width="0dp"
