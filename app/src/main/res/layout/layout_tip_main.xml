@@ -157,7 +157,7 @@
 
         <TableRow
             style="@style/row"
-            android:paddingTop="20dp">
+            android:paddingTop="30dp">
 
             <TextView
                 android:text="Custom Tip"
@@ -196,17 +196,20 @@
 
         <TableRow
             style="@style/row"
-            android:paddingTop="20dp">
+            android:layout_marginTop="20dp">
 
             <TextView
                 android:text="Split"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:layout_weight="1"
                 android:textSize="25sp" />
 
         </TableRow>
 
         <TableRow
-            style="@style/row"
-            android:layout_paddingTop="50dp">
+            style="@style/row">
 
             <EditText
                 android:id="@+id/splitPeople"
@@ -222,11 +225,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="20sp"
+                android:gravity="center"
                 android:text="people"/>
 
             <TextView style="@style/tip"
                 android:id="@+id/splitAmount"
                 android:text="@string/zero"
+                android:textSize="20sp"
                 android:layout_height="wrap_content"
                 />
 
