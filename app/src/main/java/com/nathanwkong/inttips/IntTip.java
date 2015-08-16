@@ -35,7 +35,8 @@ public class IntTip extends Activity {
         bill = 10;
 
         //create a toast
-        toast();
+        String text = "cha ching" + "\n" + "cha ching";
+        toast(text);
 
     }
 
@@ -47,64 +48,65 @@ public class IntTip extends Activity {
     public void calculate(View v) {
         EditText tBill = (EditText) findViewById(R.id.totalBill);
         String theBill = tBill.getText().toString();
+        //if the bill is empty
         if (!theBill.matches("")){
             bill = Double.parseDouble(theBill);
         }
 
-        //calculate 15%
-        double tip15 = calculate15();
-/*
-        //15%+ round the tip to the nearest dollar
-        calculate15p(Math.ceil(tip15));
-
-        //18%
-        double tip18 = calculate18();
-        //18%- round down to nearest dollar
-        double tip18 = calculateTip(18.0);
-        double tip18m = Math.floor(tip18);
-        tip.add(tip18m);
-        double total18m = tip18m + bill;
-        total.add(total18m);
-        percent.add(calculatePercent(tip18m));
-
-        //18%+
-        double tip18p = Math.ceil(tip18);
-        tip.add(tip18p);
-        double total18p = tip18p + bill;
-        total.add(total18p);
-        percent.add(calculatePercent(tip18p));
+        //calculate numbers
+        double total15 = calculate15(); //15%
+        calculate15p(Math.ceil(total15));//15%+ round the tip to the nearest dollar
+        double total18 = calculate18();//18%
+        calculate18m(Math.floor(total18));//18%- round down to nearest dollar
+        calculate18p(Math.ceil(total18));//18%+
 
         //calculate custom
-        EditText customPercent = (EditText) findViewById(R.id.cPercent);
-        double cPercent = Double.parseDouble(customPercent.getText().toString());
-        percent.add(cPercent);
-        double cTip = calculateTip(cPercent);
-        tip.add(cTip);
-        total.add(cTip + bill);
-        */
-        toast();
+        //calculateCustom();
+
+        toast("$");
     }
 
     private double calculate15(){
        double tip15 = calculateTip(15.0);
        displayToScreen(R.id.tip15, tip15);
-       displayToScreen(R.id.total15, tip15+bill);
-       return tip15;
+       displayToScreen(R.id.total15, tip15 + bill);
+       return tip15 + bill;
+    }
+
+    private void calculate15p(double total15p){
+        displayToScreen(R.id.total15Plus, total15p);
+        double tip15p = total15p - bill;
+        displayToScreen(R.id.tip15Plus, tip15p );
+        displayPercentToScreen(R.id.plus15, calculatePercent(tip15p));
     }
 
     private double calculate18(){
         double tip18 = calculateTip(18.0);
         displayToScreen(R.id.tip18, tip18);
         displayToScreen(R.id.total18, tip18 + bill);
-        return tip18;
+        return tip18 + bill;
     }
 
-    private void calculate15p(double tip15p){
-        displayToScreen(R.id.tip15Plus, tip15p);
-        double total15p = tip15p + bill;
-        displayToScreen(R.id.total15Plus, total15p );
-        displayPercentToScreen(R.id.plus15, calculatePercent(tip15p * 100));
+    private void calculate18m(double total18m){
+        displayToScreen(R.id.total18Minus, total18m);
+        double tip18m = total18m - bill;
+        displayToScreen(R.id.tip18Minus, tip18m);
+        displayPercentToScreen(R.id.minus18, calculatePercent(tip18m));
     }
+
+    private void calculate18p(double total18p){
+        displayToScreen(R.id.total18Plus, total18p);
+        double tip18p = total18p - bill;
+        displayToScreen(R.id.tip18Plus, tip18p);
+        displayPercentToScreen(R.id.plus18, calculatePercent(tip18p));
+    }
+
+    private void calculateCustom(){
+        EditText customPercent = (EditText) findViewById(R.id.cPercent);
+        double cPercent = Double.parseDouble(customPercent.getText().toString());
+
+    }
+
     /**
      * Sets the tip or total amount to the screen
      *
@@ -124,7 +126,7 @@ public class IntTip extends Activity {
      * @param percent
      */
     private void displayPercentToScreen(int textView, double percent) {
-        String percentString = NumberFormat.getCurrencyInstance().format(percent) + "%";
+        String percentString = String.format("%10.2f", percent) + "%";
         TextView v = (TextView) findViewById(textView);
         v.setText(percentString);
     }
@@ -149,9 +151,8 @@ public class IntTip extends Activity {
         return (tip / bill) * 100;
     }
 
-    private void toast(){
+    private void toast(String text){
         Context context = getApplicationContext();
-        String text = "cha ching" + "\n" + "cha ching";
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
